@@ -1,5 +1,6 @@
 package kirbstomper.speaktextme;
 
+import android.content.ContentResolver;
 import android.content.Context;
 
 public  class SpeakerService {
@@ -10,9 +11,11 @@ public  class SpeakerService {
     Speaker speaker;
 
     static SpeakerService speakerService;
+    static ContactFinder contactFinder;
 
     public  SpeakerService(Context context){
         speaker = new Speaker(context);
+        contactFinder = ContactFinder.getContactFinder(context);
     }
 
     public static SpeakerService getSpeakerService(Context context){
@@ -36,7 +39,10 @@ public  class SpeakerService {
      * Searches through contacts to retrieve a contact name when passed a phone number as input
      * @return
      */
-    public static boolean speakFromNumber(){
+    public boolean speakFromNumber(String phoneNumber){
+        String name;
+        name = ContactFinder.getContactName(phoneNumber);
+        this.speak(name);
         return true;
     }
 }

@@ -10,7 +10,8 @@ import android.widget.Toast;
 public class MessageInterceptor extends BroadcastReceiver {
 
     /***
-     * This class intercepts incoming messages and passes them to the SpeakerService to have the contact read
+     * This class intercepts incoming messages and passes them to the SpeakerService to have the
+     * contact read
      *@
      * */
 
@@ -42,7 +43,7 @@ public class MessageInterceptor extends BroadcastReceiver {
                 }
                 String sender = messages[0].getOriginatingAddress();
                 String message = sb.toString();
-                speakerService.speak(sender);
+                speakerService.speakFromNumber(sender);
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 // prevent any other broadcast receivers from receiving broadcast
                 // abortBroadcast();
