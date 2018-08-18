@@ -21,7 +21,7 @@ public class Speaker extends TextToSpeech{
 
     /**
      * This method simply speaks whatever is passed to it
-     * @param message
+     * @param name
      */
     public void speak(CharSequence name){
         super.speak(intro +" " + name,TextToSpeech.QUEUE_FLUSH,null,"textToSpeak" );
